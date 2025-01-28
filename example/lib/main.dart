@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:pixel_snap/material.dart';
 
 void main() => runApp(const MyAppGlobalLoaderOverlay());
 
@@ -125,8 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _isLoaderVisible = context.loaderOverlay.visible;
                 });
               },
-              child:
-                  const Text('Show loader overlay for 5 seconds with progress'),
+              child: const Text('Show loader overlay for 5 seconds with progress'),
             ),
             const SizedBox(height: 34),
             Text('Is loader visible: $_isLoaderVisible'),

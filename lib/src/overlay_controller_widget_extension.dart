@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:pixel_snap/material.dart';
 
 final _keyScaff = GlobalKey<ScaffoldState>();
 
@@ -8,8 +8,8 @@ const globalLoaderContext = _GlobalLoaderContext._();
 class _GlobalLoaderContext {
   const _GlobalLoaderContext._();
 
-  OverlayExtensionHelper get loaderOverlay => OverlayExtensionHelper._(
-      OverlayControllerWidget.of(_keyScaff.currentState!.context));
+  OverlayExtensionHelper get loaderOverlay =>
+      OverlayExtensionHelper._(OverlayControllerWidget.of(_keyScaff.currentState!.context));
 
   /// init GlobalLoaderContext: Add in your MaterialApp
   /// return MaterialApp(
@@ -39,9 +39,8 @@ class _GlobalLoaderContext {
     );
   }
 
-  HeroController get globalLoaderContextHeroController => HeroController(
-      createRectTween: (begin, end) =>
-          MaterialRectCenterArcTween(begin: begin, end: end));
+  HeroController get globalLoaderContextHeroController =>
+      HeroController(createRectTween: (begin, end) => MaterialRectCenterArcTween(begin: begin, end: end));
 }
 
 class _BuildPage extends StatefulWidget {
@@ -72,16 +71,13 @@ class __BuildPageState extends State<_BuildPage> {
 ///Just a extension to make it cleaner to show or hide the overlay
 extension OverlayControllerWidgetExtension on BuildContext {
   @Deprecated('Use context.loaderOverlay instead')
-  OverlayControllerWidget? getOverlayController() =>
-      OverlayControllerWidget.of(this);
+  OverlayControllerWidget? getOverlayController() => OverlayControllerWidget.of(this);
 
-  OverlayExtensionHelper get loaderOverlay =>
-      OverlayExtensionHelper._(OverlayControllerWidget.of(this));
+  OverlayExtensionHelper get loaderOverlay => OverlayExtensionHelper._(OverlayControllerWidget.of(this));
 }
 
 class OverlayExtensionHelper {
-  static final OverlayExtensionHelper _singleton =
-      OverlayExtensionHelper._internal();
+  static final OverlayExtensionHelper _singleton = OverlayExtensionHelper._internal();
   late OverlayControllerWidget _overlayController;
 
   Widget Function(dynamic progress)? _widgetBuilder;
